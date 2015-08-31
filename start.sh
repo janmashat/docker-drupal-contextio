@@ -44,7 +44,9 @@ if [ ! -f /var/www/sites/default/settings.php ]; then
 	# Install Context.IO module
 	cd /var/www/html
 	drush dl contextio
-	drush en contextio -y
+	drush -y en contextio
+	drush -y en contextio_admin
+	drush -y en contextio_feeds_plugins
 
 	# Stop mysql
 	killall mysqld
