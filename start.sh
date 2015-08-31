@@ -34,6 +34,13 @@ if [ ! -f /var/www/sites/default/settings.php ]; then
 	chmod a+w /var/www/html/sites/default
 	chown -R www-data:www-data .
 
+	# Install PHP-ContextIO
+	cd /var/www/html/sites/all/libraries
+	git clone https://github.com/contextio/PHP-ContextIO
+	cd /var/www/html/sites/all/libraries/PHP-ContextIO
+	curl -sS https://getcomposer.org/installer | php
+	php composer.phar install
+
 	# Install Context.IO module
 	cd /var/www/html
 	drush dl contextio
